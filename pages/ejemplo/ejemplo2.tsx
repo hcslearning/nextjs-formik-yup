@@ -16,6 +16,11 @@ export default function Ejemplo1Page(props){
         comuna: {_id: 0, nombre: 'Seleccione una comuna'},
     }
 
+    interface Comuna {
+        _id: number,
+        nombre: string
+    }
+
     const comunas = [
         {_id: 1, nombre: 'Santiago'},
         {_id: 2, nombre: 'Pudahuel'},
@@ -34,7 +39,7 @@ export default function Ejemplo1Page(props){
         nombre: Yup.string().min(5, "Debe colocar su nombre completo").max(20, "Su nombre excede el largo máximo permitido.").required("Requerido"),
         email: Yup.string().email("Email inválido").required("Requerido").test("email-organizacion", "Debe ser un correo de la empresa gmail.com", (value, context) => value?.includes('gmail.com')),
         direccion: Yup.string().required("La dirección es obligatoria").matches(/[a-zA-Z]{2,} [0-9]{2,}/, 'Debe especificar una dirección válida'),
-        comuna: Yup.mixed().oneOf(comunas, "Debe escoger una comuna").required("Requerido")
+        comuna: Yup.mixed().required("Requerido")
     })
 
     return (
@@ -74,16 +79,14 @@ export default function Ejemplo1Page(props){
 
                     <div className="form-group">
                         <Field name="comuna">
-                            {({field, form, meta}) => {
-                                console.dir( form )
-                                return (
-                                <Autocomplete onChange={(event, newValue) => form.setFieldValue(newValue)} options={comunas} getOptionSelected={(option, value) => option?._id === value?._id} getOptionLabel={option => option.nombre} renderInput={ params => <TextField {...params} error={meta.touched && meta.error?true:false} helperText={meta.error} variant="filled" />} style={{width: '300px'}} />
-                            )}}
+                            {({field, form, meta}) => (
+                                <Autocomplete options={comunas} getOptionLabel={o => o.nombre} getOptionSelected={(o,v) => o?._id === v?._id} renderInput={params => <TextField label="Comuna" {...params} variant="filled" error={meta.touched && meta.error?true:false} helperText={meta.error} />} style={{width: '300px'}} onBlur={(e) => form.setFieldTouched('comuna', true)} onChange={(e,v) => {form.setFieldValue('comuna', v);console.dir(field)}} />
+                            )}
                         </Field>
+                        
                     </div>
 
                     <button className="btn btn-primary" type="submit">Guardar</button>
-
                 </Form>
             </Formik>
         </div>

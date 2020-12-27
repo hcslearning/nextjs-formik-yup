@@ -7,11 +7,13 @@ export default function Home() {
       <ul>
         <li>
           <Link href="/ejemplo/ejemplo1">
-            <a>Ejemplo #1</a>
+            <a>Ejemplo #1: Formik y Yup</a>
           </Link>
         </li>
         <li>
-          <a href="#">Ejemplo #2</a>
+          <Link href="/ejemplo/ejemplo2">
+            <a>Ejemplo #2: Material React, Formik y Yup</a>
+          </Link>
         </li>
         <li>
           <a href="#">Ejemplo #3</a>

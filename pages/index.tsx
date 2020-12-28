@@ -16,7 +16,9 @@ export default function Home() {
           </Link>
         </li>
         <li>
-          <a href="#">Ejemplo #3</a>
+          <Link href="/ejemplo/ejemplo3">
+            <a>Ejemplo #3: Material React, Formik y Yup con actualización dinámica de comunas según región</a>
+          </Link>
         </li>
         <li>
           <a href="#">Ejemplo #4</a>

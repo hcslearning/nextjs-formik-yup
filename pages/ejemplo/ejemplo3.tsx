@@ -6,10 +6,10 @@ import { useState } from 'react'
 
 /**
  * https://formik.org/
- * Ejemplo #2 Usando Material React, Formik y Yup
+ * Ejemplo #3
  * 
 */
-export default function Ejemplo1Page(props){
+export default function Ejemplo3Page(props){
     const initialValues = {
         nombre: '',
         email: '',

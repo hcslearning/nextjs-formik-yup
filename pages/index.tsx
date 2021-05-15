@@ -21,7 +21,9 @@ export default function Home() {
           </Link>
         </li>
         <li>
-          <a href="#">Ejemplo #4</a>
+          <Link href="/ejemplo/ejemplo4">
+            <a>Ejemplo #4: Formik, Yup y validación condicional de campos (referencia a otro campo)</a>
+          </Link>
         </li>
       </ul>
     </div>

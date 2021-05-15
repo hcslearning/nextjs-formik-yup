@@ -8,7 +8,7 @@ import * as Yup from 'yup'
  * Ejemplo #2 Usando Material React, Formik y Yup
  * 
 */
-export default function Ejemplo1Page(props){
+export default function Ejemplo2Page(props){
     const initialValues = {
         nombre: '',
         email: '',
